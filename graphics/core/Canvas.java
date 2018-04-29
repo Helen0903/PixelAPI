@@ -1,6 +1,7 @@
-import javax.swing.*;
+import javax.swing.JPanel;
+import java.awt.Graphics;
 
-public class Canvas extends JFrame {
+public class Canvas extends JPanel {
     final static long serialVersionUID = 1l;
     
     private Render render;
