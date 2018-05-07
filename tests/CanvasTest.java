@@ -1,7 +1,8 @@
-import javax.swing.JFrame;
-
-import java.awt.Graphics;
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Toolkit;
+
+import javax.swing.JFrame;
 
 import core.Canvas;
 import core.Render;
@@ -15,6 +16,9 @@ public class CanvasTest extends JFrame {
 
     public CanvasTest() {
         super("Canvas Test");
+        double screen_height = Toolkit.getDefaultToolkit().getScreenSize().getHeight();
+        double screen_width = Toolkit.getDefaultToolkit().getScreenSize().getWidth();
+        setLocation((int) screen_width/3, (int) screen_height/3);
         setSize(600, 480);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
