@@ -18,7 +18,7 @@ public class CanvasTest extends JFrame {
         super("Canvas Test");
         double screen_height = Toolkit.getDefaultToolkit().getScreenSize().getHeight();
         double screen_width = Toolkit.getDefaultToolkit().getScreenSize().getWidth();
-        setLocation((int) screen_width/3, (int) screen_height/3);
+        setLocation((int) (screen_width-600)/2, (int) (screen_height-480)/2);
         setSize(600, 480);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
