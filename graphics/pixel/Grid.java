@@ -70,7 +70,7 @@ public class Grid extends JFrame {
 		boolean ret = true;
 		for(int y : uRange(r.height-r.y)) {
 			for(int x : uRange(r.width-r.x)) {
-				ret = ret && setPixel(x, y, c);
+				ret = ret && setPixel(r.x+x, r.y+y, c);
 			}
 		}
 		return ret;
