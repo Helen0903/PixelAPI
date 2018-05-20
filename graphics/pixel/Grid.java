@@ -68,6 +68,7 @@ public class Grid extends JFrame {
 		return this.pixels[y*ypix+x].colour == c;
 	}
 	
+	public boolean setRect(int x, int y, int width, int height, Color c) { return setRect(new Rectangle(x, y, width, height), c); }
 	public boolean setRect(Rectangle r, Color c) {
 		boolean ret = true;
 		for(int y : uRange(r.height-r.y)) {
