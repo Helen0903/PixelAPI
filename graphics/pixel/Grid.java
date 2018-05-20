@@ -18,11 +18,9 @@ public class Grid extends JFrame {
 	public int ypix; public int yres;
 	
 	public Grid(GridSetting setting) {
-		setSize(setting.xres+6, setting.yres+29);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 		setResizable(false);
-		setMinimumSize(new Dimension(setting.xres, setting.yres));
 		
 		this.xpix = setting.xpix; this.xres = setting.xres;
 		this.ypix = setting.ypix; this.yres = setting.yres;
@@ -36,6 +34,7 @@ public class Grid extends JFrame {
 			}
 		}
 		Canvas canvas = new Canvas();
+		canvas.setPreferredSize(new Dimension(xres, yres));;
 		Render render = new Render() {
 			@Override
 			public void draw(Graphics g) {
@@ -48,8 +47,32 @@ public class Grid extends JFrame {
 		canvas.load(render);
 		
 		add(canvas);
+		pack();
 		
 		revalidate();
 		repaint();
+	}
+	
+	private int[] uRange(int to) {
+		int[] ret = new int[to];
+		for(int x=0;x<to;x++) {
+			ret[x] = x;
+		}
+		return ret;
+	}
+	
+	public boolean setPixel(int x, int y, Color c) {
+		this.pixels[y*ypix+x] = new Pixel(new Rectangle(x*(xres/xpix), y*(yres/ypix), xres/xpix, yres/ypix), c);
+		return this.pixels[y*ypix+x].colour == c;
+	}
+	
+	public boolean setRect(Rectangle r, Color c) {
+		boolean ret = true;
+		for(int y : uRange(r.height-r.y)) {
+			for(int x : uRange(r.width-r.x)) {
+				ret = ret && setPixel(x, y, c);
+			}
+		}
+		return ret;
 	}
 }
