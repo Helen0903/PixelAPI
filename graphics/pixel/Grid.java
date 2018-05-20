@@ -17,6 +17,8 @@ public class Grid extends JFrame {
 	public int xpix; public int xres;
 	public int ypix; public int yres;
 	
+	private Canvas canvas;
+	
 	public Grid(GridSetting setting) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
@@ -33,7 +35,7 @@ public class Grid extends JFrame {
 				pixels[y*ypix+x] = new Pixel(new Rectangle(x*(xres/xpix), y*(yres/ypix), xres/xpix, yres/ypix), new Color(r, g, b));
 			}
 		}
-		Canvas canvas = new Canvas();
+		canvas = new Canvas();
 		canvas.setPreferredSize(new Dimension(xres, yres));;
 		Render render = new Render() {
 			@Override
@@ -74,5 +76,18 @@ public class Grid extends JFrame {
 			}
 		}
 		return ret;
+	}
+	
+	public void resize(int x, int y) {
+		canvas.setPreferredSize(new Dimension(x, y));
+		
+		for(Pixel p : pixels) {
+			p.shape = new Rectangle(Math.round(p.shape.x*((float) x/xres)), Math.round(p.shape.y*((float) y/yres)), x/xpix, y/ypix);
+		}
+		
+		xres = x; yres = y;
+		pack();
+		
+		repaint();
 	}
 }
