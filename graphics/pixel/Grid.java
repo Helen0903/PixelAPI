@@ -87,7 +87,7 @@ public class Grid extends JFrame {
 		
 		xres = x; yres = y;
 		pack();
-		
+		revalidate();
 		repaint();
 	}
 }
