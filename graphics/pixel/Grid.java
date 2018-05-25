@@ -71,8 +71,8 @@ public class Grid extends JFrame {
 	public boolean setRect(int x, int y, int width, int height, Color c) { return setRect(new Rectangle(x, y, width, height), c); }
 	public boolean setRect(Rectangle r, Color c) {
 		boolean ret = true;
-		for(int y : uRange(r.height-r.y)) {
-			for(int x : uRange(r.width-r.x)) {
+		for(int y : uRange(r.height)) {
+			for(int x : uRange(r.width)) {
 				ret = ret && setPixel(r.x+x, r.y+y, c);
 			}
 		}
