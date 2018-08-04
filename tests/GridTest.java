@@ -9,6 +9,6 @@ public class GridTest {
 		Grid grid = new Grid(new GridSetting(500, 500, 50, 50));
 		grid.setRect(new Rectangle(1, 1, 20, 20), new Color(255, 255, 255));
 		Thread.sleep(1000);
-		grid.resize(250, 250);
+		grid.repixelise(250, 250);
 	}
 }
