@@ -19,6 +19,11 @@ public class Grid extends JFrame {
 	
 	private Canvas canvas;
 	
+	/**
+	 * The constructor for a Grid.<br/>
+	 * Requires a GridSetting to be specified.
+	 * @param setting The GridSetting instance to be used.
+	 */
 	public Grid(GridSetting setting) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
@@ -63,6 +68,14 @@ public class Grid extends JFrame {
 		return ret;
 	}
 	
+	/**
+	 * This function sets the pixel at the specified (x, y) coordinate to the specified colour (c).<br/>
+	 * The colour should be specified as a Color object, part of `java.awt`.
+	 * @param x The x-coordinate.
+	 * @param y The y-coordinate.
+	 * @param c The Color object to set it to.
+	 * @return Whether or not the pixel has been changed.
+	 */
 	public boolean setPixel(int x, int y, Color c) {
 		this.pixels[y*ypix+x] = new Pixel(new Rectangle(x*(xres/xpix), y*(yres/ypix), xres/xpix, yres/ypix), c);
 		return this.pixels[y*ypix+x].colour == c;
@@ -79,7 +92,15 @@ public class Grid extends JFrame {
 		return ret;
 	}
 	
-	public void resize(int x, int y) {
+	/**
+	 * Weird name due to conflicts with Component's deprecated resize() method.<br/>
+	 * This function resizes the grid to x real-pixels by y real-pixels.<br/>
+	 * The inner Pixels are also resized to fit the space correctly.<br/>
+	 * <b>This does not change the amount of Pixels in the Grid, only its size.</b>
+	 * @param x the new x dimension of the grid, in real-pixels
+	 * @param y the new y dimension of the grid, in real-pixels
+	 */
+	public void repixelise(int x, int y) {
 		canvas.setPreferredSize(new Dimension(x, y));
 		
 		for(Pixel p : pixels) {
