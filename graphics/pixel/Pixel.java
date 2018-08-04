@@ -4,10 +4,10 @@ import java.awt.Color;
 import java.awt.Rectangle;
 /**
  * <br/><b><i>&emsp;&emsp;Pixel</i></b><br/><br/>
- * &emsp;&emsp;&emsp;<tt>public class Pixel(int x, int y, int width, int height, int r, int g, int b)<br/>
- * &emsp;&emsp;&emsp;public class Pixel(int x, int y, int width, int height, {@link java.awt.Color Color} c)<br/>
- * &emsp;&emsp;&emsp;public class Pixel({@link java.awt.Rectangle Rectangle} shape, int r, int g, int b)<br/>
- * &emsp;&emsp;&emsp;public class Pixel({@link java.awt.Rectangle Rectangle} shape, {@link java.awt.Color Color} c)</tt><br/><br/>
+ * &emsp;&emsp;&emsp;<tt>public class {@link #Pixel(int, int, int, int, int, int, int) Pixel}(int x, int y, int width, int height, int r, int g, int b)<br/>
+ * &emsp;&emsp;&emsp;public class {@link #Pixel(int, int, int, int, Color) Pixel}(int x, int y, int width, int height, {@link java.awt.Color Color} c)<br/>
+ * &emsp;&emsp;&emsp;public class {@link #Pixel(Rectangle, int, int, int) Pixel}({@link java.awt.Rectangle Rectangle} shape, int r, int g, int b)<br/>
+ * &emsp;&emsp;&emsp;public class {@link #Pixel(Rectangle, Color) Pixel}({@link java.awt.Rectangle Rectangle} shape, {@link java.awt.Color Color} c)</tt><br/><br/>
  * &emsp;&emsp;Pixel is a simple class that most users will most likely never have to use.<br/>
  * &emsp;&emsp;The lowest constructor is the one that is defined, whereas all the others are overloads which generate the {@link java.awt.Rectangle Rectangle} and {@link java.awt.Color Color} objects for you.<br/><br/>
  * &emsp;&emsp;<b>Parameters:</b><br/>
@@ -21,7 +21,10 @@ import java.awt.Rectangle;
  * &emsp;&emsp;&emsp;r - the red value of the colour<br/>
  * &emsp;&emsp;&emsp;g - the green value of the colour<br/>
  * &emsp;&emsp;&emsp;b - the blue value of the colour<br/>
- * &emsp;&emsp;&emsp;c - the {@link java.awt.Color Color} instance that has the 3 above in one object
+ * &emsp;&emsp;&emsp;c - the {@link java.awt.Color Color} instance that has the 3 above in one object<br/><br/>
+ * &emsp;&emsp;<b>See also:</b><br/>
+ * &emsp;&emsp;&emsp;{@link #shape} - the {@link java.awt.Rectangle Rectangle} instance used for the Pixel class.<br/>
+ * &emsp;&emsp;&emsp;{@link #colour} - the {@link java.awt.Color Color} instance used for the Pixel class.
  */
 public class Pixel {
 	/**
@@ -29,7 +32,7 @@ public class Pixel {
 	 * &emsp;&emsp;&emsp;<tt>public {@link java.awt.Rectangle Rectangle} shape</tt><br/><br/>
 	 * &emsp;&emsp;The {@link java.awt.Rectangle Rectangle} instance defining the size and location of this {@link pixel.Pixel Pixel}.<br/>
 	 * &emsp;&emsp;The x and y coordinates at the beginning define how many {@link pixel.Pixel Pixels} along and down this particular pixel is.<br/>
-	 * &emsp;&emsp;The width and height define the horizontal and vertical size of the pixel (in actual pixels).
+	 * &emsp;&emsp;The width and height define the horizontal and vertical size of the {@link Pixel} (in actual pixels).
 	 */
 	public Rectangle shape;
 	/**
