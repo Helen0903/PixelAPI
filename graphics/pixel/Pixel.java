@@ -104,4 +104,17 @@ public class Pixel {
 		this.shape = shape;
 		this.colour = c;
 	}
+	
+	/**
+	 * <br/><b><i>&emsp;&emsp;Clone function</b></i><br/><br/>
+	 * <tt>&emsp;&emsp;&emsp;clone()</tt><br/><br/>
+	 * &emsp;&emsp;Creates a non-linked copy of this object.<br/><br/>
+	 * &emsp;&emsp;<b>Overrides:</b> {@link Object#clone() clone()} in {@link Object}.<br/>
+	 * &emsp;&emsp;<b>Returns:</b><br/>
+	 * &emsp;&emsp;&emsp;a clone of this instance.
+	 * <div style="visibility: hidden">
+	 */
+	public Pixel clone() {
+		return new Pixel(shape.x, shape.y, shape.width, shape.height, colour.getRed(), colour.getGreen(), colour.getBlue());
+	}
 }
